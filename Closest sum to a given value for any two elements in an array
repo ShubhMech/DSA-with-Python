@@ -1,0 +1,17 @@
+val=36
+arr=[7,9,11,13,15,18,23,25,27,28]
+compare= []
+for i in range(len(arr)):
+    sum=0
+    sum+= arr[i]
+    for j in range(i+1,len(arr)):
+        if sum+arr[j]<=val :
+            compare.append(sum+arr[j])
+        else:
+            continue
+ff= [x/val for x in compare]
+gg=[x for x in ff if x<=1]
+ff= [x*val for x in ff]
+# print(ff)
+print(sorted(compare)[-1])
+
