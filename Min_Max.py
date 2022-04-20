@@ -1,19 +1,16 @@
-# Python program to find the element occurring odd number of times
-
-def getOddOccurrence(arr):
-
-
-    res = 0
+def min_max(arr,low,high):
+    if low==high:
+        print("Returning for n=1")
+        return arr[low]
+    elif high-low==1:
+        print("Returning for n=2")
+        return min(arr[low],arr[high])
     
-    # Traverse the arraya
-    for element in arr:
-        # XOR with the result
-        print(res)
-        res = res ^ element
-
-    return res
-
-# Test array
-arr = [ 2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2]
-
-print("%d" % getOddOccurrence(arr))
+    elif low<high:
+        mid= low+ (high-low)//2
+        print(mid,arr[mid],arr[low:mid],arr[mid+1:high])
+        min1= min_max(arr,low,mid)
+        min2=min_max(arr,mid+1,high)
+        return min(arr[mid],min1,min2)
+    
+min_max(arr,0,len(arr)-1)
